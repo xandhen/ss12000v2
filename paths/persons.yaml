@@ -54,6 +54,7 @@ persons:
           - _responsibleFor.enrolment_ - filterar utifrån personer som har en _"responsibleFor"_-relation, dvs är en vårdnadshavare eller annan ansvarig vuxen, till en elev med minst en inskrivning.
           - _responsibleFor.placement_ - filterar utifrån personer som har en _"responsibleFor"_-relation, dvs är en vårdnadshavare eller annan ansvarig vuxen, till ett barn med minst en placering.
             Notera att oftast är det bättre att använda _placement.owner_ än denna parameter.
+          - _groupMembership_ - filtrerar utifrån gruppmedlemsskap
 
           Detta kan kombineras med `relationship.startDate.onOrBefore` och `relationship.endDate.onOrAfter` för att begränsa till aktiva relationer.
         in: query
@@ -66,6 +67,7 @@ persons:
             - placement.owner
             - responsibleFor.enrolment
             - responsibleFor.placement
+            - groupMembership
       - name: relationship.organisation
         description: |
           Begränsa urvalet till de personer som har en relation till angivet organisationselement (vanligtvis en skolenhet). 
@@ -78,6 +80,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.placedAt`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.enroledAt`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.placedAt`.
+          - _groupMembership_ - person poster matchandes `person.groupMemberships`
 
         in: query
         schema:
@@ -96,6 +99,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.startDate`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.startDate`.
+          - _groupMembership_ - poster matchandes `group.groupMemberships.person` eller `group.assignmentRole.duty.person` i en lista filtrerad utifrån `group.groupMemberships.startDate` eller `group.assignmentRole.startDate`.
             
           Detta kan kombineras med _relationship.endDate.onOrAfter_ för att begränsa till aktiva relationer.
         in: query
@@ -115,6 +119,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.startDate`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.startDate`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.startDate`.
+          - _groupMembership_ - poster matchande `group.groupMemberships.person` eller `group.assignmentRole.duty.person` i en lista filtrerad utifrån `group.groupMemberships.startDate` eller `group.assignmentRole.startDate`.
 
         in: query
         schema:
@@ -133,6 +138,7 @@ persons:
           - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
           - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.endDate`.
           - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.endDate`.
+          - _groupMembership_ - poster matchande `group.groupMemberships.person` eller `group.assignmentRole.duty.person` i en lista filtrerad utifrån `group.groupMemberships.endDate` eller `group.assignmentRole.endDate`.
 
         in: query
         schema:
@@ -151,6 +157,7 @@ persons:
            - _placement.owner_ - person poster matchandes `placement.owner` i en lista filtrerad utifrån `placement.endDate`.
            - _responsibleFor.enrolment_ - person poster matchandes `person.responsibles` i en lista filtrerad utifrån `person.enrolment.endDate`.
            - _responsibleFor.placement_ - person poster matchandes `person.responsibles` i en lista med person poster som i sin tur matchar `placement.child` i en lista filtrerad utifrån `placement.endDate`.
+           - _groupMembership_ - poster matchande `group.groupMemberships.person` eller `group.assignmentRole.duty.person` i en lista filtrerad utifrån `group.groupMemberships.endDate` eller `group.assignmentRole.endDate`.
 
           Detta kan kombineras med _relationship.startDate.onOrBefore_ för att begränsa till aktiva relationer.
 
