@@ -28,6 +28,9 @@ Enrolment:
     cancelled:
       type: boolean
       description: Inskrivningen har avbrutits i förväg.
+    secondary:
+      type: boolean
+      description: Inskrivningen är en sekundärinskrivning och speglar inte elevens huvudsakliga inskrivning.
     educationCode:
       type: string
       description: Studievägskod för den aktuella inskrivningen.
